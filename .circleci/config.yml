@@ -1,15 +1,15 @@
 version: 2.1
 
 jobs:
- build-and-test:
-  machine:
-   image: ubuntu-2004:current
+  build-and-test:
+    machine:
+      image: ubuntu-2004:current
+    steps:
+      - checkout
+      - run: make deps
+      - run: make test
 
-  steps:
-   -checkout
-   -run:make deps
-   -run:make test
- workflows:
+workflows:
   basic:
-   jobs:
-    -build-and-test
+    jobs:
+      -build-and-test
